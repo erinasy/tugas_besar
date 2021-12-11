@@ -1,7 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\BerandaController;
+use App\Http\Controllers\AboutController;
+use App\Http\Controllers\ProductController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,4 +22,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/beranda', [BerandaController::class, 'index']);
+Route::get('/about', [AboutController::class, 'index']);
+Route::get('/product', [ProductController::class, 'index']);
 
