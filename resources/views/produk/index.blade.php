@@ -29,44 +29,60 @@
         </div>    
       </div>
     </div>
-    <section class="tm-welcome-section">
-      <div class="container tm-position-relative">        
-        <div class="row tm-welcome-content">
-          <h2 class="white-text tm-handwriting-font tm-welcome-header"><img src="img/header-line.png" alt="Line" class="tm-header-line">&nbsp;Welcome To&nbsp;&nbsp;<img src="img/header-line.png" alt="Line" class="tm-header-line"></h2>
-          <h2 class="gold-text tm-welcome-header-2">Flower House</h2>
-          <p class="gray-text tm-welcome-description">FLOWER HOUSE berdiri pada tahun 2020  yang merupakan singkatan dari moto kami yaitu rumah adalah bunga yang
-             memiliki arti rumah harus seharum bunga. Berawal Dari Penjualan Produk Boquet secara online dan telah memperoleh kepercayaan dari jutaan customer sehingga 
-             kami terus melakukan pengembangan produk.Flower haouse memiliki spesialiasi di bidang desain dan dekorasi bunga untuk berbagai momen dan acara, seperti acara 
-             pernikahan, Mother's Day, wisuda, anniversary, pesta pribadi, acara perusahaan, maupun karangan bunga berisi ucapan selamat lainnya. Tak hanya itu bunga hias dan 
-             juga perlengkapan untuk menanampun cukup lengkap pada toko kami.
-          </p>
-          <a href="#main" class="tm-more-button tm-more-button-welcome">Details</a>      
-        </div>        
-      </div>      
-    </section>
 @endsection
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-      <br>
-      @foreach($produk as $s)
-        <div class="col-md-4">
+        <div class="col-md-60">
             <div class="card">
-            <img width="150px" src="{{asset('storage/'.$s->photo)}}" alt="image">
-              <div class="card-body">
-                <h5 class="card-title">{{ $s->name }}</h5>
-                <p class="card-text">
-                    <strong>Harga :</strong> {{($s->harga)}} <br>
-                    <strong>Stok :</strong> {{ $s->stok }} <br>
-                    <strong>Keterangan :</strong> <br>
-                    {{ $s->keterangan }} 
-                    <br>
-                </p>
-                <a href="/pesanan/{{$s->id}}/tampilan" class="btn btn-primary"><i class="fa fa-shopping-cart"></i> Pesan</a>
-              </div>
-            </div> 
-        </div>
-        @endforeach
+            <br>
+                    <div class="card-body">
+            @if (session('status'))
+                <div class="alert alert-success" role="alert">
+                    {{ session('status') }}
+                </div>
+            @endif
+            <a href="/produk/create" class="btn btn-primary">Add Data</a> 
+                    <br><br>
+                     <table class="table table-responsive table-striped">
+                        <thead>
+                            <tr>
+                                 <th>ID</th>
+                                 <th>Nama</th>
+                                 <th>Keterangan</th>
+                                 <th>Stok</th>
+                                 <th>Harga</th>
+                                 <th>Photo</th>
+                                 <th>Action</th>
+                            </tr>
+                        </thead>
+                    <tbody>
+                    @foreach($produk as $s)
+                     <tr>
+                         <td>{{ $s->id }}</td>
+                         <td>{{ $s->name }}</td>
+                         <td>{{ $s->keterangan }}</td>
+                         <td>{{ $s->stok }}</td>
+                         <td>{{ $s->harga}}</td>
+                         <td>
+                           <img width="150px" src="{{asset('storage/'.$s->photo)}}" alt="image">
+                          </td>
+                         <td>
+                            <form action="/produk/{{$s->id}}" method="post">
+                             <a href="/produk/{{$s->id}}/edit" class="btn btn-warning">Edit</a>
+                             <a href="/produk/{{$s->id}}" class="btn btn-info">View</a>
+                                 @csrf
+                                 @method('DELETE')
+                                <button type="submit" name="delete" class="btn btn-danger">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                    @endforeach
+                     </tbody>
+                </table>
+                </div>
+            </div>
+         </div>
     </div>
 </div>
 @endsection

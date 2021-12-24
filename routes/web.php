@@ -3,7 +3,11 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BerandaController;
 use App\Http\Controllers\AboutController;
-use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ProdukController;
+use App\Http\Controllers\PelangganController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\PesananController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,6 +27,13 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/beranda', [BerandaController::class, 'index']);
-Route::get('/about', [AboutController::class, 'index']);
-Route::get('/product', [ProductController::class, 'index']);
+Route::get('/about', [AboutController::class, 'about']);
+Route::get('/contact', [ContactController::class, 'contact']);
+Route::resource('pelanggan', PelangganController::class);
+Route::resource('admin', AdminController::class);
+Route::resource('produk', ProdukController::class);
+Route::resource('pesanan', PesananController::class);
+Route::get('pesanan/{id}/tampilan', [PesananController::class, 'pesan']);
+Route::get('pesanan/{id}/create', [PesananController::class, 'create']);
+
 

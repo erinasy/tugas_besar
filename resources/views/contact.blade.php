@@ -34,41 +34,11 @@
         <div class="row tm-welcome-content">
           <h2 class="white-text tm-handwriting-font tm-welcome-header"><img src="img/header-line.png" alt="Line" class="tm-header-line">&nbsp;Welcome To&nbsp;&nbsp;<img src="img/header-line.png" alt="Line" class="tm-header-line"></h2>
           <h2 class="gold-text tm-welcome-header-2">Flower House</h2>
-          <p class="gray-text tm-welcome-description">FLOWER HOUSE berdiri pada tahun 2020  yang merupakan singkatan dari moto kami yaitu rumah adalah bunga yang
-             memiliki arti rumah harus seharum bunga. Berawal Dari Penjualan Produk Boquet secara online dan telah memperoleh kepercayaan dari jutaan customer sehingga 
-             kami terus melakukan pengembangan produk.Flower haouse memiliki spesialiasi di bidang desain dan dekorasi bunga untuk berbagai momen dan acara, seperti acara 
-             pernikahan, Mother's Day, wisuda, anniversary, pesta pribadi, acara perusahaan, maupun karangan bunga berisi ucapan selamat lainnya. Tak hanya itu bunga hias dan 
-             juga perlengkapan untuk menanampun cukup lengkap pada toko kami.
-          </p>
+          <p class="gray-text tm-welcome-description">Flower House template is a mobile-friendly responsive <span class="gold-text">Bootstrap v3.3.5</span> layout by <span class="gold-text">templatemo</span>. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculusnec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.</p>
           <a href="#main" class="tm-more-button tm-more-button-welcome">Details</a>      
         </div>        
       </div>      
     </section>
-@endsection
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-      <br>
-      @foreach($produk as $s)
-        <div class="col-md-4">
-            <div class="card">
-            <img width="150px" src="{{asset('storage/'.$s->photo)}}" alt="image">
-              <div class="card-body">
-                <h5 class="card-title">{{ $s->name }}</h5>
-                <p class="card-text">
-                    <strong>Harga :</strong> {{($s->harga)}} <br>
-                    <strong>Stok :</strong> {{ $s->stok }} <br>
-                    <strong>Keterangan :</strong> <br>
-                    {{ $s->keterangan }} 
-                    <br>
-                </p>
-                <a href="/pesanan/{{$s->id}}/tampilan" class="btn btn-primary"><i class="fa fa-shopping-cart"></i> Pesan</a>
-              </div>
-            </div> 
-        </div>
-        @endforeach
-    </div>
-</div>
 @endsection
 @section('footer')
     <footer>

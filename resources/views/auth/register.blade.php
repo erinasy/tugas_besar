@@ -33,64 +33,97 @@
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
-				<form class="login100-form validate-form" method="POST" action="{{ route('register') }}">
+			<form class="login100-form validate-form" method="POST" action="{{ route('register') }}">
 					@csrf
 					<span class="login100-form-title p-b-43">
 						Registrasi
 					</span>
-					<div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
-						<input class="input100" type="text" name="username">
-						<span class="focus-input100"></span>
-						<span class="label-input100">Username</span>
-					</div>
-					<div class="wrap-input100 validate-input" data-validate="Password is required">
-						<input class="input100" type="text" name="name">
-						<span class="focus-input100"></span>
-						<span class="label-input100">Name</span>
-					</div>
-					<div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
-						<input class="input100" type="text" name="email">
-						<span class="focus-input100"></span>
-						<span class="label-input100">Email</span>
-					</div>
-					<div class="wrap-input100 validate-input" data-validate="Password is required">
-						<input class="input100" type="password" name="pass">
-						<span class="focus-input100"></span>
-						<span class="label-input100">Password</span>
-					</div>
-					<div class="flex-sb-m w-full p-t-3 p-b-32">
-						<div class="contact100-form-checkbox">
-							<input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
-							<label class="label-checkbox100" for="ckb1">
-							Remember me
-							</label>
+					<div class="input-group mb-3">
+						<input id="username" type="text" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" required autocomplete="username" autofocus placeholder="Username">
+						<div class="input-group-append">
+							<div class="input-group-text">
+								<span class="fas fa-user"></span>
+							</div>
 						</div>
-
-						<div>
-							<a href="#" class="txt1">
-							Forgot Password?
-							</a>
+						@error('username')
+							<span class="invalid-feedback" role="alert">
+								<strong>{{ $message }}</strong>
+							</span>
+						@enderror
+					</div>
+					<div class="input-group mb-3">
+						<input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="name">
+						<div class="input-group-append">
+							<div class="input-group-text">
+								<span class="fas fa-user"></span>
+							</div>
+						</div>
+						@error('name')
+							<span class="invalid-feedback" role="alert">
+								<strong>{{ $message }}</strong>
+							</span>
+						@enderror
+					</div>
+					<div class="input-group mb-3">
+						<input id="email" type="text" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="email">
+						<div class="input-group-append">
+							<div class="input-group-text">
+								<span class="fas fa-user"></span>
+							</div>
+						</div>
+						@error('email')
+							<span class="invalid-feedback" role="alert">
+								<strong>{{ $message }}</strong>
+							</span>
+						@enderror
+					</div>
+					<div class="input-group mb-3">
+						<input input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" placeholder="Password">
+						<div class="input-group-append">
+							<div class="input-group-text">
+							<span class="fas fa-lock"></span>
+							</div>
+						</div>
+						@error('password')
+							<span class="invalid-feedback" role="alert">
+								<strong>{{ $message }}</strong>
+							</span>
+						@enderror
+					</div>
+					<div class="input-group mb-3">
+						<input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password" placeholder="Retype password">
+						<div class="input-group-append">
+							<div class="input-group-text">
+							<span class="fas fa-lock"></span>
+							</div>
 						</div>
 					</div>
-						<div class="container-login100-form-btn">
-						@if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="login100-form-btn">Register</a>
-                        @endif
+					<div class="input-group mb-3">
+						<select class="form-control" name="role">
+							<option value="admin">admin</option>
+							<option value="user">pelanggan</option>
+						</select>
+						<div class="input-group-text">
+						<span class="fas fa-user"></span>
 						</div>
-					<div class="text-center p-t-46 p-b-20">
-						<span class="txt2">
-						or sign up using
-						</span>
 					</div>
-					<div class="login100-form-social flex-c-m">
-						<a href="#" class="login100-form-social-item flex-c-m bg1 m-r-5">
-						<i class="fa fa-facebook-f" aria-hidden="true"></i>
-						</a>
-						<a href="#" class="login100-form-social-item flex-c-m bg2 m-r-5">
-						<i class="fa fa-twitter" aria-hidden="true"></i>
-						</a>	
-					</div>
+					<div class="row">
+						<div class="col-8">
+							<div class="icheck-primary">
+								<input type="checkbox" id="agreeTerms" name="terms" value="agree">
+								<label for="agreeTerms">
+								I agree to the <a href="#">terms</a>
+								</label>
+							</div>
+						</div>
+          				<!-- /.col -->
+          				<div class="col-4">
+           					 <button type="submit" class="btn btn-primary btn-block" a href="{{ route('login') }}" >Register</button></a>
+          				</div>
+         				 <!-- /.col -->
+        			</div>
 				</form>
+
 					<div class="login100-more" style="background-image: url('images/bg-02.jpg');">
 				</div>
 			</div>
