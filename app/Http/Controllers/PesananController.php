@@ -28,7 +28,7 @@ class PesananController extends Controller
     public function store(Request $request)
     {        
           //add data
-          dd($request->all());
+        ($request->all());
           Pesanan::create($request->all());
           // if true, redirect to index
           return redirect()->route('pesanan.index')->with('Sukses', 'CheckOut Sukses!');
@@ -60,7 +60,7 @@ class PesananController extends Controller
      */
     public function edit($id)
     {
-        $pesanan = Pesanan::find($id);
+        $pesanan = Pesanan::find($id);        
             return view('pesan.edit',['pesanan'=>$pesanan]);
     }
 
@@ -80,7 +80,7 @@ class PesananController extends Controller
         $pesanan->tgl_pengiriman = $request->tgl_pengiriman;
         $pesanan->total = $request->total;
         $pesanan->save();
-        return redirect()->route('pesan.index');
+        return redirect()->route('pesanan.index');
     }
 
     /**

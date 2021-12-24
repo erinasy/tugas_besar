@@ -75,17 +75,12 @@ http://www.templatemo.com/tm-466-cafe-house
             <form action="/pesanan/{{$pesanan->id}}" method="post"  enctype="multipart/form-data">
                 {{csrf_field()}}
                 @method('PUT')
-                <div class="form-group">
-                        <label for="id">ID</label>
-                        <input type="text" class="form-control" 
-                        required="required" name="name"  value="{{$pesanan->id}}"></br>
-                    </div>
                     <div class="form-group">
                         <label for="pelanggan_id">Pelanggan_ID</label>
                         <input type="text" class="form-control" 
                         required="required" name="pelanggan_id"  value="{{$pesanan->pelanggan_id}}"></br>
                     </div class="form-group">
-                    <div class="form-group">
+                    <div class="form-goup">
                         <label for="produk_id">Produk_ID</label>
                         <input type="text" class="form-control" 
                         required="required" name="produk_id"  value="{{$pesanan->produk_id}}"></br>

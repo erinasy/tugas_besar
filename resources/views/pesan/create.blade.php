@@ -133,6 +133,7 @@ http://www.templatemo.com/tm-466-cafe-house
                         required="required" name="total"></br>
                     </div>
                     <button type="submit" name="add" class="btn btn-primary float-right">Beli Sekarang</button>
+                    <a href='/beranda' class="btn btn-info">Kembali</a>
             </form>
                 </div>
             </div>

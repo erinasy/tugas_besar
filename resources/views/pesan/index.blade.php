@@ -67,7 +67,7 @@
                          <td>{{ $s->tgl_pengiriman}}</td>
                          <td>{{ $s->total}}</td>
                          <td>
-                           <a href="/pesanan/{{$s->id}}/edit" class="btn btn-warning">Edit</a>
+                           <a href="/pesanan/{{$s->pesanan_id}}/edit" class="btn btn-warning">Edit</a>
                             <form action="/pesanan/{{$s->pesanan_id}}" method="post">
                                  @csrf
                                  @method('DELETE')
@@ -77,6 +77,7 @@
                     </tr>
                     @endforeach
                      </tbody>
+                     <a href='/beranda' class="btn btn-info">Kembali</a>
                 </table>
                 </div>
             </div>
